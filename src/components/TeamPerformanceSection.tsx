@@ -5,7 +5,7 @@ import iconMetrics from "@/assets/icon-metrics.png";
 const solutions = [
   { icon: iconRequirement, text: "Criando um Planejamento baseado em dados e muita troca com a dona da marca." },
   { icon: iconPipeline, text: "Estrutura de campanhas por intenção de compra" },
-  { icon: iconMetrics, text: "Análise de métricas eliminando gargalos" },
+  { icon: iconMetrics, text: "Entramos em um ciclo contínuo de análise de métricas, diagnóstico e plano de ação. Em busca de eliminar os gargalos que surgiram no decorrer do processo." },
 ];
 
 const TeamPerformanceSection = () => {
