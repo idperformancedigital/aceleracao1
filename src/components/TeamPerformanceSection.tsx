@@ -3,10 +3,10 @@ import iconPipeline from "@/assets/icon-pipeline.png";
 import iconMetrics from "@/assets/icon-metrics.png";
 
 const solutions = [
-{ icon: iconRequirement, text: "Planejamento por hipóteses (PDCA)" },
-{ icon: iconPipeline, text: "Estrutura de campanhas por intenção de compra" },
-{ icon: iconMetrics, text: "Análise de métricas eliminando gargalos" }];
-
+  { icon: iconRequirement, text: "Criando um Planejamento baseado em dados e muita troca com a dona da marca." },
+  { icon: iconPipeline, text: "Estruturamos as campanhas por intenção de compra. Baseado na jornada de compra do consumidor." },
+  { icon: iconMetrics, text: "Entramos em um ciclo contínuo de análise de métricas, diagnóstico e plano de ação. Em busca de eliminar os gargalos que surgiram no decorrer do processo." },
+];
 
 const TeamPerformanceSection = () => {
   const scrollToForm = () => {
@@ -18,22 +18,22 @@ const TeamPerformanceSection = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col gap-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-on-dark leading-tight">
-            Entramos com <span className="text-gradient-green">nosso time de performance e...</span>
+            Entramos com <span className="text-gradient-green">nosso time de performance:</span>
           </h2>
 
           <div className="flex flex-col gap-5 mt-4">
-            {solutions.map((item, i) =>
-            <div key={i} className="flex items-center gap-4">
+            {solutions.map((item, i) => (
+              <div key={i} className="flex items-center gap-4">
                 <img src={item.icon} alt="" className="w-10 h-10 flex-shrink-0" />
                 <h3 className="text-on-dark text-base md:text-lg font-medium">{item.text}</h3>
               </div>
-            )}
+            ))}
           </div>
 
           <button
             onClick={scrollToForm}
-            className="bg-cta-green shadow-green-glow text-primary-foreground font-bold text-base px-8 py-4 rounded-full w-fit hover:scale-105 transition-transform mt-4">
-
+            className="bg-cta-green shadow-green-glow text-primary-foreground font-bold text-base px-8 py-4 rounded-full w-fit hover:scale-105 transition-transform mt-4"
+          >
             Quero essa transformação também!
           </button>
         </div>
@@ -46,13 +46,13 @@ const TeamPerformanceSection = () => {
               loop
               muted
               playsInline
-              className="w-full h-full object-cover" />
-
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default TeamPerformanceSection;
