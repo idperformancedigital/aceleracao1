@@ -1,6 +1,7 @@
 import iconGraph from "@/assets/icon-graph.png";
 import iconLanding from "@/assets/icon-landing.png";
 import iconLine from "@/assets/icon-line.png";
+import caseCollage from "@/assets/case-real-collage.jpg";
 
 const problems = [
   { icon: iconGraph, text: "Tráfego pulverizado e criativos sem hipótese clara." },
@@ -32,14 +33,12 @@ const CaseRealSection = () => {
         </div>
 
         <div className="flex justify-center">
-          <div className="bg-surface-dark-card rounded-2xl overflow-hidden w-full max-w-md aspect-[9/16] flex items-center justify-center border border-green-accent/20">
-            <video
-              src="https://idperformancedigital.com.br/wp-content/uploads/2026/01/0110.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover"
+          <div className="rounded-2xl overflow-hidden w-full max-w-md border border-green-accent/20">
+            <img
+              src={caseCollage}
+              alt="Case real Auravie - WhatsApp, anúncios e página de produto"
+              className="w-full h-auto object-cover"
+              loading="lazy"
             />
           </div>
         </div>
