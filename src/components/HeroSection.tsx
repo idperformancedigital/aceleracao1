@@ -10,7 +10,7 @@ const HeroSection = () => {
     <section className="bg-hero-gradient min-h-screen flex items-center py-16 px-4">
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col gap-6">
-          <img src={logo} alt="ID Performance Digital" className="w-40 md:w-48 mb-4" width={192} height={47} />
+          <img src={logo} alt="ID Performance Digital" className="w-40 md:w-48 mb-4 mx-auto" width={192} height={47} />
           
           <h1 className="text-3xl md:text-5xl font-extrabold text-foreground leading-tight">
             Do R$20K/mês a R$100K/mês em menos de 1 ano:
