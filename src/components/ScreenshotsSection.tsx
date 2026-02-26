@@ -1,9 +1,9 @@
-import screenshot12 from "@/assets/screenshot-12.png";
-import screenshot10 from "@/assets/screenshot-10.png";
-import screenshot8 from "@/assets/screenshot-8.png";
-import screenshot17 from "@/assets/screenshot-17.png";
-
-const screenshots = [screenshot12, screenshot10, screenshot8, screenshot17];
+const videos = [
+  "https://www.youtube.com/embed/LVC1UgBSE5Y",
+  "https://www.youtube.com/embed/U-aOdvt3kCk",
+  "https://www.youtube.com/embed/u107xSMItns",
+  "https://www.youtube.com/embed/fTrKnibv-4g",
+];
 
 const ScreenshotsSection = () => {
   return (
@@ -13,14 +13,17 @@ const ScreenshotsSection = () => {
           Como somos vistos pelos nossos clientes
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
-          {screenshots.map((src, i) => (
-            <img
-              key={i}
-              src={src}
-              alt={`Screenshot ${i + 1}`}
-              className="rounded-xl w-full aspect-square object-cover border border-green-accent/10"
-              loading="lazy"
-            />
+          {videos.map((url, i) => (
+            <div key={i} className="rounded-xl overflow-hidden border border-green-accent/10 aspect-[9/16]">
+              <iframe
+                src={url}
+                title={`Depoimento cliente ${i + 1}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+                loading="lazy"
+              />
+            </div>
           ))}
         </div>
       </div>
