@@ -15,7 +15,7 @@ const CaseRealSection = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col gap-6">
           <p className="text-sm font-bold tracking-widest uppercase">
-            <span className="text-gradient-green text-lg">CASo REAL:</span>
+            <span className="text-gradient-green text-lg">PROBLEMAS ENCONTRADOS:</span>
           </p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-on-dark leading-tight">
             Um e-commerce promissor, faturando{" "}
