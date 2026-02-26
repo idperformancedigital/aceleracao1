@@ -7,7 +7,7 @@ const ResultSection = () => {
     <section className="bg-surface-dark py-20 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col gap-6">
-          <p className="text-sm font-bold tracking-widest uppercase text-on-dark-muted">RESULTADO:</p>
+          <p className="font-bold tracking-widest uppercase text-on-dark-muted text-lg text-primary">RESULTADO:</p>
           <h2 className="text-3xl md:text-4xl font-extrabold text-on-dark leading-tight">
             <span className="text-gradient-green">Superamos R$100 mil/mês</span>{" "}
             com estabilidade operacional e previsibilidade de mídia.
@@ -15,8 +15,8 @@ const ResultSection = () => {
 
           <button
             onClick={scrollToForm}
-            className="bg-cta-green shadow-green-glow text-primary-foreground font-bold text-base px-8 py-4 rounded-full w-fit hover:scale-105 transition-transform"
-          >
+            className="bg-cta-green shadow-green-glow text-primary-foreground font-bold text-base px-8 py-4 rounded-full w-fit hover:scale-105 transition-transform">
+
             Quero bater R$100k mensal
           </button>
         </div>
@@ -28,13 +28,13 @@ const ResultSection = () => {
               title="Depoimento"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              className="w-full h-full"
-            />
+              className="w-full h-full" />
+
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default ResultSection;
