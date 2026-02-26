@@ -31,6 +31,9 @@ const ClientsCarousel = () => {
                   alt={`Cliente ${(i % clients.length) + 1}`}
                   className="w-full rounded-lg"
                   loading="lazy"
+                  width={120}
+                  height={120}
+                  decoding="async"
                 />
               </div>
             ))}

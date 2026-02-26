@@ -10,9 +10,9 @@ const HeroSection = () => {
     <section className="bg-hero-gradient min-h-screen flex items-center py-16 px-4">
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div className="flex flex-col gap-6">
-          <img src={logo} alt="ID Performance Digital" className="w-64 md:w-80 mb-4" />
+          <img src={logo} alt="ID Performance Digital" className="w-64 md:w-80 mb-4" width={320} height={78} />
           
-          <img src={heroChart} alt="Gráfico de receita" className="lg:hidden rounded-2xl w-full max-w-md" />
+          <img src={heroChart} alt="Gráfico de receita" className="lg:hidden rounded-2xl w-full max-w-md" width={512} height={512} loading="lazy" />
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
             Com uma equipe engajada de performance, levamos nossos clientes a multiplicar a receita mensal sem promessas vazias, só execução e dados reais.
@@ -30,7 +30,7 @@ const HeroSection = () => {
         </div>
 
         <div className="hidden lg:flex justify-center">
-          <img src={heroChart} alt="Gráfico de receita" className="rounded-2xl w-full max-w-lg" />
+          <img src={heroChart} alt="Gráfico de receita" className="rounded-2xl w-full max-w-lg" width={512} height={512} fetchPriority="high" />
         </div>
       </div>
     </section>
