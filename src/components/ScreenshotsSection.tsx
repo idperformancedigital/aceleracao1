@@ -3,6 +3,8 @@ const videos = [
   "https://www.youtube.com/embed/U-aOdvt3kCk",
   "https://www.youtube.com/embed/u107xSMItns",
   "https://www.youtube.com/embed/fTrKnibv-4g",
+  "https://www.youtube.com/embed/qC7dIrCs_fM",
+  "https://www.youtube.com/embed/c5a3DJPnCP4",
 ];
 
 const ScreenshotsSection = () => {
