@@ -1,7 +1,7 @@
 import iconGraph from "@/assets/icon-graph.png";
 import iconLanding from "@/assets/icon-landing.png";
 import iconLine from "@/assets/icon-line.png";
-import caseCollage from "@/assets/case-real-collage.jpg";
+import caseCollage from "@/assets/case-real-collage.png";
 
 const problems = [
   { icon: iconGraph, text: "Tráfego pulverizado e criativos sem hipótese clara." },
@@ -37,7 +37,7 @@ const CaseRealSection = () => {
             <img
               src={caseCollage}
               alt="Case real Auravie - WhatsApp, anúncios e página de produto"
-              className="w-full h-auto object-contain mix-blend-multiply"
+              className="w-full h-auto object-contain"
               loading="lazy"
             />
           </div>
