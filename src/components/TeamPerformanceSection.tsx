@@ -3,7 +3,7 @@ import iconPipeline from "@/assets/icon-pipeline.png";
 import iconMetrics from "@/assets/icon-metrics.png";
 
 const solutions = [
-  { icon: iconRequirement, text: "Planejamento por hipóteses (PDCA)" },
+  { icon: iconRequirement, text: "Criando um Planejamento baseado em dados e muita troca com a dona da marca." },
   { icon: iconPipeline, text: "Estrutura de campanhas por intenção de compra" },
   { icon: iconMetrics, text: "Análise de métricas eliminando gargalos" },
 ];
