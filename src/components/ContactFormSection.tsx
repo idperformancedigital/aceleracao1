@@ -58,7 +58,7 @@ const ContactFormSection = () => {
               {[
                 { key: "nome", label: "Nome", type: "text" },
                 { key: "whatsapp", label: "Whatsapp", type: "tel" },
-                { key: "site", label: "Site", type: "url" },
+                { key: "site", label: "Site", type: "text" },
                 { key: "instagram", label: "Instagram", type: "text" },
               ].map((field) => (
                 <div key={field.key} className="flex flex-col gap-1">
