@@ -37,7 +37,7 @@ const CaseRealSection = () => {
             <img
               src={caseCollage}
               alt="Case real Auravie - WhatsApp, anúncios e página de produto"
-              className="w-full h-auto object-contain mix-blend-lighten"
+              className="w-full h-auto object-contain mix-blend-multiply"
               loading="lazy"
             />
           </div>
