@@ -4,7 +4,7 @@ const FooterSection = () => {
   return (
     <footer className="bg-surface-dark-secondary py-10 px-4">
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-4">
-        <img src={footerLogo} alt="ID Performance Digital" className="w-48" width={192} height={47} loading="lazy" decoding="async" />
+        <img src={footerLogo} alt="ID Performance Digital" className="w-24" width={96} height={24} loading="lazy" decoding="async" />
         <p className="text-on-dark-muted text-xs">ID PERFORMANCE</p>
       </div>
     </footer>
