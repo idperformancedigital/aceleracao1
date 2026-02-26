@@ -1,5 +1,5 @@
 import logo from "@/assets/logo.webp";
-import heroChart from "@/assets/hero-chart.png";
+const heroChart = "/hero-chart.png";
 
 const HeroSection = () => {
   const scrollToForm = () => {
