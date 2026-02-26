@@ -33,7 +33,7 @@ const CaseRealSection = () => {
         </div>
 
         <div className="flex justify-center">
-          <div className="w-full max-w-xl">
+          <div className="w-full max-w-2xl">
             <img
               src={caseCollage}
               alt="Case real Auravie - WhatsApp, anúncios e página de produto"
