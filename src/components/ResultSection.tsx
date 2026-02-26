@@ -22,7 +22,7 @@ const ResultSection = () => {
         </div>
 
         <div className="flex justify-center">
-          <div className="bg-surface-dark-card rounded-2xl overflow-hidden w-full max-w-md aspect-video border border-green-accent/20">
+          <div className="bg-surface-dark-card rounded-2xl overflow-hidden w-full max-w-xs aspect-[9/16] border border-green-accent/20">
             <iframe
               src="https://www.youtube.com/embed/H1-7HEscc9w"
               title="Depoimento"
