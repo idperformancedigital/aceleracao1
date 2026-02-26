@@ -17,9 +17,9 @@ const clients = [c1, c2, c3, c4, c5, c6, c7, c9, c11, c13, c14, c15, c16, c18];
 
 const ClientsCarousel = () => {
   return (
-    <section className="bg-surface-dark py-16 px-4 overflow-hidden">
+    <section className="bg-white py-16 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-10">
-        <h2 className="text-2xl md:text-3xl font-extrabold text-on-dark text-center">
+        <h2 className="text-2xl md:text-3xl font-extrabold text-foreground text-center">
           Clientes que trabalhamos
         </h2>
         <div className="w-full overflow-hidden">
