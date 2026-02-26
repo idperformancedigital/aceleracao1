@@ -1,10 +1,32 @@
 import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
 
 const ContactFormSection = () => {
   const [form, setForm] = useState({ nome: "", whatsapp: "", site: "", instagram: "" });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
+
+    try {
+      const { error } = await supabase.from("leads").insert({
+        nome: form.nome.trim(),
+        whatsapp: form.whatsapp.trim(),
+        site: form.site.trim() || null,
+        instagram: form.instagram.trim() || null,
+      });
+
+      if (error) throw error;
+
+      toast({ title: "Dados enviados com sucesso!" });
+    } catch {
+      toast({ title: "Erro ao salvar dados", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
+
     const msg = `Olá! Me chamo ${form.nome}. Meu site: ${form.site}. Instagram: ${form.instagram}`;
     const phone = "5500000000000";
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, "_blank");
@@ -42,9 +64,10 @@ const ContactFormSection = () => {
           ))}
           <button
             type="submit"
-            className="bg-cta-green shadow-green-glow text-primary-foreground font-bold text-base px-8 py-4 rounded-full hover:scale-105 transition-transform mt-2"
+            disabled={loading}
+            className="bg-cta-green shadow-green-glow text-primary-foreground font-bold text-base px-8 py-4 rounded-full hover:scale-105 transition-transform mt-2 disabled:opacity-50"
           >
-            Quero participar
+            {loading ? "Enviando..." : "Quero participar"}
           </button>
         </form>
       </div>
