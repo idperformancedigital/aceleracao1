@@ -16,10 +16,12 @@ const ScreenshotsSection = () => {
   const [canScrollRight, setCanScrollRight] = useState(true);
 
   const checkScroll = () => {
-    const el = scrollRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+    requestAnimationFrame(() => {
+      const el = scrollRef.current;
+      if (!el) return;
+      setCanScrollLeft(el.scrollLeft > 0);
+      setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 2);
+    });
   };
 
   useEffect(() => {
