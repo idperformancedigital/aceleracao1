@@ -7,7 +7,6 @@ const videos = [
   "U-aOdvt3kCk",
   "u107xSMItns",
   "fTrKnibv-4g",
-  "qC7dIrCs_fM",
   "c5a3DJPnCP4",
 ];
 
