@@ -19,7 +19,7 @@ const HeroSection = () => {
 
           </p>
 
-          <img src={heroChart} alt="Gráfico de receita" className="lg:hidden rounded-2xl w-full max-w-md" width={512} height={512} loading="lazy" />
+          <img src={heroChart} alt="Gráfico de receita" className="lg:hidden rounded-2xl w-full max-w-md" width={512} height={512} fetchPriority="high" />
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">Acelere o crescimento da sua marca e vire referência no seu próprio nicho. Com uma equipe engajada de performance, levamos nossos clientes a multiplicar a receita mensal sem promessas vazias, só execução e dados reais.
 

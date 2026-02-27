@@ -1,13 +1,14 @@
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import LiteYouTube from "./LiteYouTube";
 
 const videos = [
-  "https://www.youtube.com/embed/LVC1UgBSE5Y",
-  "https://www.youtube.com/embed/U-aOdvt3kCk",
-  "https://www.youtube.com/embed/u107xSMItns",
-  "https://www.youtube.com/embed/fTrKnibv-4g",
-  "https://www.youtube.com/embed/qC7dIrCs_fM",
-  "https://www.youtube.com/embed/c5a3DJPnCP4",
+  "LVC1UgBSE5Y",
+  "U-aOdvt3kCk",
+  "u107xSMItns",
+  "fTrKnibv-4g",
+  "qC7dIrCs_fM",
+  "c5a3DJPnCP4",
 ];
 
 const ScreenshotsSection = () => {
@@ -63,18 +64,14 @@ const ScreenshotsSection = () => {
             onScroll={checkScroll}
             className="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth"
           >
-            {videos.map((url, i) => (
+            {videos.map((videoId, i) => (
               <div
                 key={i}
                 className="flex-shrink-0 w-[220px] md:w-[260px] rounded-xl overflow-hidden border border-green-accent/10 aspect-[9/16]"
               >
-                <iframe
-                  src={url}
+                <LiteYouTube
+                  videoId={videoId}
                   title={`Depoimento cliente ${i + 1}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                  loading="lazy"
                 />
               </div>
             ))}
