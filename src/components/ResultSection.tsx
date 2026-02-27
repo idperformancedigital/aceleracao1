@@ -26,14 +26,13 @@ const ResultSection = () => {
           <div className="bg-surface-dark-card rounded-2xl overflow-hidden w-full max-w-xs aspect-[9/16] border border-green-accent/20">
             <LiteYouTube
               videoId="H1-7HEscc9w"
-              title="Depoimento"
-              autoPlayOnVisible
-            />
+              title="Depoimento" />
+
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default ResultSection;
