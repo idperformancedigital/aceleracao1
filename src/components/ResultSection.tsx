@@ -27,6 +27,7 @@ const ResultSection = () => {
             <LiteYouTube
               videoId="H1-7HEscc9w"
               title="Depoimento"
+              autoPlayOnVisible
             />
           </div>
         </div>
