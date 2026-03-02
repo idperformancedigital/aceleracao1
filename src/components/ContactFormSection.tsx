@@ -23,6 +23,9 @@ const ContactFormSection = () => {
       if (error) throw error;
 
       setSubmitted(true);
+      if (typeof window !== "undefined" && (window as any).fbq) {
+        (window as any).fbq("trackCustom", "Lead");
+      }
     } catch {
       toast({ title: "Erro ao salvar dados. Tente novamente.", variant: "destructive" });
     } finally {
