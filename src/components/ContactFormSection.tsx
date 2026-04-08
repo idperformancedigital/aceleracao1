@@ -19,7 +19,7 @@ const ContactFormSection = () => {
         site: form.site.trim() || null,
         instagram: form.instagram.trim() || null,
         origem: window.location.href,
-      });
+      } as any);
 
       if (error) throw error;
 
