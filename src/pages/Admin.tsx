@@ -26,6 +26,8 @@ const Admin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
+  const [perPage, setPerPage] = useState<number>(20);
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {
