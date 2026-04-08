@@ -139,9 +139,25 @@ const Admin = () => {
   return (
     <div className="min-h-screen bg-surface-dark p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-wrap items-center justify-between mb-8 gap-4">
           <h1 className="text-2xl font-bold text-on-dark">Leads ({leads.length})</h1>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2 items-center">
+            <div className="flex items-center gap-1 mr-2">
+              <span className="text-on-dark-muted text-sm">Exibir:</span>
+              {[5, 20, 0].map((n) => (
+                <button
+                  key={n}
+                  onClick={() => { setPerPage(n); setPage(1); }}
+                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                    perPage === n
+                      ? "bg-cta-green text-primary-foreground"
+                      : "bg-surface-dark-card text-on-dark-muted hover:bg-surface-dark-card/80"
+                  }`}
+                >
+                  {n === 0 ? "Todos" : n}
+                </button>
+              ))}
+            </div>
             <Button onClick={exportCSV} variant="outline" className="border-green-accent/30 text-on-dark hover:bg-surface-dark-card">
               Exportar CSV
             </Button>
@@ -153,7 +169,10 @@ const Admin = () => {
 
         {leads.length === 0 ? (
           <p className="text-on-dark-muted text-center py-12">Nenhum lead cadastrado ainda.</p>
-        ) : (
+        ) : (() => {
+          const totalPages = perPage === 0 ? 1 : Math.ceil(leads.length / perPage);
+          const visibleLeads = perPage === 0 ? leads : leads.slice((page - 1) * perPage, page * perPage);
+          return (<>
           <div className="rounded-xl border border-green-accent/10 overflow-x-auto">
             <Table>
               <TableHeader>
