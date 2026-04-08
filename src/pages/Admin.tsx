@@ -186,7 +186,7 @@ const Admin = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {leads.map((lead) => (
+                {visibleLeads.map((lead) => (
                   <TableRow key={lead.id} className="border-green-accent/10 hover:bg-surface-dark-card">
                     <TableCell className="text-on-dark font-medium">{lead.nome}</TableCell>
                     <TableCell className="text-on-dark">{lead.whatsapp}</TableCell>
@@ -206,7 +206,29 @@ const Admin = () => {
               </TableBody>
             </Table>
           </div>
-        )}
+          {perPage > 0 && totalPages > 1 && (
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <button
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                disabled={page === 1}
+                className="px-3 py-1 rounded-full text-sm bg-surface-dark-card text-on-dark-muted hover:bg-surface-dark-card/80 disabled:opacity-30"
+              >
+                ← Anterior
+              </button>
+              <span className="text-on-dark-muted text-sm">
+                {page} de {totalPages}
+              </span>
+              <button
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                disabled={page === totalPages}
+                className="px-3 py-1 rounded-full text-sm bg-surface-dark-card text-on-dark-muted hover:bg-surface-dark-card/80 disabled:opacity-30"
+              >
+                Próxima →
+              </button>
+            </div>
+          )}
+          </>);
+        })()}
       </div>
     </div>
   );
