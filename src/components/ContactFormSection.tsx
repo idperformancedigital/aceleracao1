@@ -13,12 +13,13 @@ const ContactFormSection = () => {
     setLoading(true);
 
     try {
+      const currentUrl = window.location.origin + window.location.pathname + window.location.search;
       const { error } = await supabase.from("leads").insert({
         nome: form.nome.trim(),
         whatsapp: form.whatsapp.trim(),
         site: form.site.trim() || null,
         instagram: form.instagram.trim() || null,
-        origem: window.location.href,
+        origem: currentUrl,
       } as any);
 
       if (error) throw error;
