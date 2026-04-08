@@ -1,10 +1,24 @@
 
 
-# Adicionar Microsoft Clarity ao `<head>`
+# Adicionar coluna "Origem" (URL) aos leads
 
-Inserir o script do Clarity no `<head>` do `index.html`, logo após o script do Meta Pixel e antes dos `<link>` de preconnect.
+## O que será feito
+1. **Criar migração** para adicionar a coluna `origem` (text, nullable) na tabela `leads`
+2. **Atualizar o formulário** (`ContactFormSection.tsx`) para gravar `window.location.href` automaticamente ao inserir um lead
+3. **Atualizar o painel admin** (`Admin.tsx`) para exibir a nova coluna "Origem" na tabela e no export CSV
 
-## Detalhe técnico
-- **Arquivo**: `index.html`
-- Inserir o bloco `<script>` do Clarity (ID `w1fa18bpl3`) após a linha `<!-- End Meta Pixel Code -->` (linha 38)
+## Detalhes técnicos
+
+### Migração SQL
+```sql
+ALTER TABLE public.leads ADD COLUMN origem text;
+```
+
+### ContactFormSection.tsx
+- No `insert`, adicionar `origem: window.location.href`
+
+### Admin.tsx
+- Adicionar `origem` à interface `Lead`
+- Adicionar coluna "Origem" na tabela (TableHead + TableCell)
+- Incluir "Origem" no export CSV
 
