@@ -152,7 +152,7 @@ const Admin = () => {
         {leads.length === 0 ? (
           <p className="text-on-dark-muted text-center py-12">Nenhum lead cadastrado ainda.</p>
         ) : (
-          <div className="rounded-xl overflow-hidden border border-green-accent/10">
+          <div className="rounded-xl border border-green-accent/10 overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow className="border-green-accent/10 hover:bg-transparent">
@@ -160,7 +160,7 @@ const Admin = () => {
                    <TableHead className="text-on-dark-muted">WhatsApp</TableHead>
                    <TableHead className="text-on-dark-muted">Site</TableHead>
                    <TableHead className="text-on-dark-muted">Instagram</TableHead>
-                   <TableHead className="text-on-dark-muted">Origem</TableHead>
+                   <TableHead className="text-on-dark-muted min-w-[360px]">Origem</TableHead>
                    <TableHead className="text-on-dark-muted">Data</TableHead>
                 </TableRow>
               </TableHeader>
@@ -171,7 +171,12 @@ const Admin = () => {
                     <TableCell className="text-on-dark">{lead.whatsapp}</TableCell>
                      <TableCell className="text-on-dark-muted">{lead.site || "—"}</TableCell>
                      <TableCell className="text-on-dark-muted">{lead.instagram || "—"}</TableCell>
-                     <TableCell className="text-on-dark-muted text-xs max-w-[200px] truncate">{lead.origem || "—"}</TableCell>
+                     <TableCell
+                       className="text-on-dark-muted text-xs min-w-[360px] whitespace-normal break-all"
+                       title={lead.origem || "—"}
+                     >
+                       {lead.origem || "—"}
+                     </TableCell>
                      <TableCell className="text-on-dark-muted">
                       {new Date(lead.created_at).toLocaleString("pt-BR")}
                     </TableCell>
