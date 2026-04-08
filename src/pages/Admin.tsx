@@ -15,6 +15,7 @@ interface Lead {
   whatsapp: string;
   site: string | null;
   instagram: string | null;
+  origem: string | null;
   created_at: string;
 }
 
