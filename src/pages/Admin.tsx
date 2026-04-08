@@ -26,6 +26,8 @@ const Admin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authLoading, setAuthLoading] = useState(false);
+  const [perPage, setPerPage] = useState<number>(20);
+  const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -137,9 +139,25 @@ const Admin = () => {
   return (
     <div className="min-h-screen bg-surface-dark p-4 md:p-8">
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-wrap items-center justify-between mb-8 gap-4">
           <h1 className="text-2xl font-bold text-on-dark">Leads ({leads.length})</h1>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2 items-center">
+            <div className="flex items-center gap-1 mr-2">
+              <span className="text-on-dark-muted text-sm">Exibir:</span>
+              {[5, 20, 0].map((n) => (
+                <button
+                  key={n}
+                  onClick={() => { setPerPage(n); setPage(1); }}
+                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                    perPage === n
+                      ? "bg-cta-green text-primary-foreground"
+                      : "bg-surface-dark-card text-on-dark-muted hover:bg-surface-dark-card/80"
+                  }`}
+                >
+                  {n === 0 ? "Todos" : n}
+                </button>
+              ))}
+            </div>
             <Button onClick={exportCSV} variant="outline" className="border-green-accent/30 text-on-dark hover:bg-surface-dark-card">
               Exportar CSV
             </Button>
@@ -151,7 +169,10 @@ const Admin = () => {
 
         {leads.length === 0 ? (
           <p className="text-on-dark-muted text-center py-12">Nenhum lead cadastrado ainda.</p>
-        ) : (
+        ) : (() => {
+          const totalPages = perPage === 0 ? 1 : Math.ceil(leads.length / perPage);
+          const visibleLeads = perPage === 0 ? leads : leads.slice((page - 1) * perPage, page * perPage);
+          return (<>
           <div className="rounded-xl border border-green-accent/10 overflow-x-auto">
             <Table>
               <TableHeader>
@@ -165,7 +186,7 @@ const Admin = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {leads.map((lead) => (
+                {visibleLeads.map((lead) => (
                   <TableRow key={lead.id} className="border-green-accent/10 hover:bg-surface-dark-card">
                     <TableCell className="text-on-dark font-medium">{lead.nome}</TableCell>
                     <TableCell className="text-on-dark">{lead.whatsapp}</TableCell>
@@ -185,7 +206,29 @@ const Admin = () => {
               </TableBody>
             </Table>
           </div>
-        )}
+          {perPage > 0 && totalPages > 1 && (
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <button
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
+                disabled={page === 1}
+                className="px-3 py-1 rounded-full text-sm bg-surface-dark-card text-on-dark-muted hover:bg-surface-dark-card/80 disabled:opacity-30"
+              >
+                ← Anterior
+              </button>
+              <span className="text-on-dark-muted text-sm">
+                {page} de {totalPages}
+              </span>
+              <button
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                disabled={page === totalPages}
+                className="px-3 py-1 rounded-full text-sm bg-surface-dark-card text-on-dark-muted hover:bg-surface-dark-card/80 disabled:opacity-30"
+              >
+                Próxima →
+              </button>
+            </div>
+          )}
+          </>);
+        })()}
       </div>
     </div>
   );
