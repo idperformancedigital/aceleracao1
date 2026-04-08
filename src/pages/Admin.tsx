@@ -15,6 +15,7 @@ interface Lead {
   whatsapp: string;
   site: string | null;
   instagram: string | null;
+  origem: string | null;
   created_at: string;
 }
 
@@ -74,12 +75,13 @@ const Admin = () => {
 
   const exportCSV = () => {
     if (!leads.length) return;
-    const headers = ["Nome", "WhatsApp", "Site", "Instagram", "Data"];
+    const headers = ["Nome", "WhatsApp", "Site", "Instagram", "Origem", "Data"];
     const rows = leads.map((l) => [
       l.nome,
       l.whatsapp,
       l.site || "",
       l.instagram || "",
+      l.origem || "",
       new Date(l.created_at).toLocaleString("pt-BR"),
     ]);
     const csv = [headers, ...rows].map((r) => r.join(",")).join("\n");
@@ -154,11 +156,12 @@ const Admin = () => {
             <Table>
               <TableHeader>
                 <TableRow className="border-green-accent/10 hover:bg-transparent">
-                  <TableHead className="text-on-dark-muted">Nome</TableHead>
-                  <TableHead className="text-on-dark-muted">WhatsApp</TableHead>
-                  <TableHead className="text-on-dark-muted">Site</TableHead>
-                  <TableHead className="text-on-dark-muted">Instagram</TableHead>
-                  <TableHead className="text-on-dark-muted">Data</TableHead>
+                   <TableHead className="text-on-dark-muted">Nome</TableHead>
+                   <TableHead className="text-on-dark-muted">WhatsApp</TableHead>
+                   <TableHead className="text-on-dark-muted">Site</TableHead>
+                   <TableHead className="text-on-dark-muted">Instagram</TableHead>
+                   <TableHead className="text-on-dark-muted">Origem</TableHead>
+                   <TableHead className="text-on-dark-muted">Data</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -166,9 +169,10 @@ const Admin = () => {
                   <TableRow key={lead.id} className="border-green-accent/10 hover:bg-surface-dark-card">
                     <TableCell className="text-on-dark font-medium">{lead.nome}</TableCell>
                     <TableCell className="text-on-dark">{lead.whatsapp}</TableCell>
-                    <TableCell className="text-on-dark-muted">{lead.site || "—"}</TableCell>
-                    <TableCell className="text-on-dark-muted">{lead.instagram || "—"}</TableCell>
-                    <TableCell className="text-on-dark-muted">
+                     <TableCell className="text-on-dark-muted">{lead.site || "—"}</TableCell>
+                     <TableCell className="text-on-dark-muted">{lead.instagram || "—"}</TableCell>
+                     <TableCell className="text-on-dark-muted text-xs max-w-[200px] truncate">{lead.origem || "—"}</TableCell>
+                     <TableCell className="text-on-dark-muted">
                       {new Date(lead.created_at).toLocaleString("pt-BR")}
                     </TableCell>
                   </TableRow>
